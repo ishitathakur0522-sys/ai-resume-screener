@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply m-0 p-0 text-slate-800 bg-slate-50;
+  }
+
+  /* Touch friendly elements */
+  input,
+  textarea,
+  button {
+    @apply appearance-none outline-none;
+  }
+}
+
+@layer components {
+  .card-hover {
+    @apply transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-500/10;
+  }
+
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-md border border-white/50 shadow-lg;
+  }
+
+  /* Touch UI constraints via min-h-[44px] - minimum 44x44px for accessibility */
+  .btn-primary {
+    @apply flex items-center justify-center gap-2 bg-gradient-to-r from-primary-600 to-primary-500 text-white font-medium rounded-xl shadow-md shadow-primary-500/20 hover:shadow-lg hover:shadow-primary-500/40 hover:-translate-y-0.5 transition-all duration-200 min-h-[44px] min-w-[44px] px-4 py-2;
+  }
+
+  .btn-outline {
+    @apply flex items-center justify-center gap-2 bg-white border-2 border-primary-100 text-primary-700 font-medium rounded-xl hover:bg-primary-50 hover:border-primary-200 transition-all duration-200 min-h-[44px] min-w-[44px] px-4 py-2;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-4 min-h-[44px] rounded-xl text-slate-500 font-medium transition-colors duration-200 hover:bg-primary-50 hover:text-primary-600 cursor-pointer;
+  }
+
+  .nav-item.active {
+    @apply bg-primary-50 text-primary-600 font-semibold;
+  }
+}
+
+/* Custom WebKit Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
