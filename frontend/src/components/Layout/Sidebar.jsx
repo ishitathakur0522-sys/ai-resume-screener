@@ -11,7 +11,7 @@ const Sidebar = ({ activeTab, setActiveTab, closeMobile }) => {
     <div className="w-72 h-full bg-white border-r border-slate-200 shadow-[2px_0_8px_-4px_rgba(0,0,0,0.1)] flex flex-col">
       <div className="p-6 hidden lg:flex items-center gap-3 border-b border-slate-100">
         <div className="bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl p-2.5 shadow-md shadow-primary-500/20">
-           <ShieldCheck size={26} className="text-white" />
+          <ShieldCheck size={26} className="text-white" />
         </div>
         <h1 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
           NexusAI
@@ -20,8 +20,8 @@ const Sidebar = ({ activeTab, setActiveTab, closeMobile }) => {
 
       <div className="px-4 py-8 flex-1 flex flex-col gap-3 relative mt-16 lg:mt-0">
         <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 px-4">Menu</p>
-        
-        <button 
+
+        <button
           onClick={() => switchTab('upload')}
           className={`nav-item w-full ${activeTab === 'upload' ? 'active shadow-sm' : ''}`}
         >
@@ -29,7 +29,7 @@ const Sidebar = ({ activeTab, setActiveTab, closeMobile }) => {
           <span className="text-[1.05rem]">Upload & Analyze</span>
         </button>
 
-        <button 
+        <button
           onClick={() => switchTab('dashboard')}
           className={`nav-item w-full ${activeTab === 'dashboard' ? 'active shadow-sm' : ''}`}
         >

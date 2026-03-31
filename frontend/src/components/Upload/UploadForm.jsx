@@ -14,7 +14,7 @@ const UploadForm = ({ onUploadComplete }) => {
     setError('');
   }, []);
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ 
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: { 'application/pdf': ['.pdf'] }
   });
@@ -58,12 +58,12 @@ const UploadForm = ({ onUploadComplete }) => {
     <div className="w-full flex justify-center items-start">
       <div className="bg-white rounded-2xl shadow-sm border border-slate-200 w-full max-w-4xl overflow-hidden card-hover">
         <div className="p-6 sm:p-8 md:p-10 flex flex-col gap-8">
-          
+
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-slate-800 mb-2">Evaluate Candidates</h2>
             <p className="text-slate-500">Provide the job requirements and upload resumes to let NexusAI match them.</p>
           </div>
-          
+
           {error && (
             <div className="bg-red-50 border-l-4 border-red-500 p-4 text-red-700 rounded-md shadow-sm">
               {error}
@@ -86,57 +86,57 @@ const UploadForm = ({ onUploadComplete }) => {
 
           {/* Drag & Drop Zone */}
           <div className="flex flex-col gap-3">
-             <label className="font-semibold text-slate-700">Resumes (PDF)</label>
-             <div 
-               {...getRootProps()} 
-               className={`border-2 border-dashed rounded-xl p-8 sm:p-12 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 min-h-[200px]
+            <label className="font-semibold text-slate-700">Resumes (PDF)</label>
+            <div
+              {...getRootProps()}
+              className={`border-2 border-dashed rounded-xl p-8 sm:p-12 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 min-h-[200px]
                  ${isDragActive ? 'border-primary-500 bg-primary-50 shadow-inner' : 'border-slate-300 hover:border-primary-400 bg-slate-50 hover:bg-slate-50/50'}
                `}
-             >
-               <input {...getInputProps()} />
-               <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4 text-primary-500">
-                  <UploadCloud size={32} />
-               </div>
-               
-               {isDragActive ? (
-                 <p className="text-lg font-medium text-primary-600">Drop the PDFs here...</p>
-               ) : (
-                 <div className="text-center">
-                    <p className="text-lg font-medium text-slate-700 mb-1">Drag & drop resumes here</p>
-                    <p className="text-sm text-slate-500 mb-4">or click to browse files</p>
-                    <button type="button" className="btn-outline h-9 text-sm inline-flex">
-                        Browse Files
-                    </button>
-                 </div>
-               )}
-             </div>
+            >
+              <input {...getInputProps()} />
+              <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4 text-primary-500">
+                <UploadCloud size={32} />
+              </div>
 
-             {/* File List */}
-             {files.length > 0 && (
-               <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                 {files.map((file, idx) => (
-                   <div key={idx} className="flex items-center justify-between p-3 bg-slate-50 border border-slate-200 rounded-lg group hover:border-slate-300 transition-colors">
-                     <div className="flex items-center gap-3 overflow-hidden">
-                       <File size={20} className="text-primary-500 flex-shrink-0" />
-                       <span className="text-sm font-medium text-slate-700 truncate">{file.name}</span>
-                     </div>
-                     <button
-                       type="button"
-                       onClick={(e) => removeFile(e, idx)}
-                       className="p-1.5 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-md transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center sm:min-w-0 sm:min-h-0 sm:p-1"
-                       title="Remove"
-                     >
-                       <X size={18} />
-                     </button>
-                   </div>
-                 ))}
-               </div>
-             )}
+              {isDragActive ? (
+                <p className="text-lg font-medium text-primary-600">Drop the PDFs here...</p>
+              ) : (
+                <div className="text-center">
+                  <p className="text-lg font-medium text-slate-700 mb-1">Drag & drop resumes here</p>
+                  <p className="text-sm text-slate-500 mb-4">or click to browse files</p>
+                  <button type="button" className="btn-outline h-9 text-sm inline-flex">
+                    Browse Files
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* File List */}
+            {files.length > 0 && (
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {files.map((file, idx) => (
+                  <div key={idx} className="flex items-center justify-between p-3 bg-slate-50 border border-slate-200 rounded-lg group hover:border-slate-300 transition-colors">
+                    <div className="flex items-center gap-3 overflow-hidden">
+                      <File size={20} className="text-primary-500 flex-shrink-0" />
+                      <span className="text-sm font-medium text-slate-700 truncate">{file.name}</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={(e) => removeFile(e, idx)}
+                      className="p-1.5 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-md transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center sm:min-w-0 sm:min-h-0 sm:p-1"
+                      title="Remove"
+                    >
+                      <X size={18} />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="pt-4 border-t border-slate-100 flex justify-end">
-            <button 
-              onClick={handleUpload} 
+            <button
+              onClick={handleUpload}
               disabled={isUploading}
               className={`btn-primary w-full sm:w-auto px-8 ${isUploading ? 'opacity-80 cursor-wait' : ''}`}
             >

@@ -34,7 +34,7 @@ function App() {
       {/* Mobile Top Header (Hamburger) */}
       <div className="lg:hidden fixed top-0 w-full glass-panel z-50 flex items-center justify-between p-4 px-6 border-b border-slate-200">
         <h1 className="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">NexusAI</h1>
-        <button 
+        <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors"
           aria-label="Toggle Sidebar"
@@ -60,18 +60,18 @@ function App() {
               <UploadForm onUploadComplete={() => { setActiveTab('dashboard'); fetchCandidates(); }} />
             </div>
           )}
-          
+
           {activeTab === 'dashboard' && (
-             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                <Dashboard candidates={candidates} loading={loading} />
-             </div>
+            <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <Dashboard candidates={candidates} loading={loading} />
+            </div>
           )}
         </div>
       </main>
 
       {/* Mobile Sidebar Overlay */}
       {sidebarOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-30 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />

@@ -34,7 +34,7 @@ const Dashboard = ({ candidates, loading }) => {
           <button
             onClick={async () => {
               if (window.confirm("Clear all candidates?")) {
-                await fetch("http://localhost:5000/api/clear", {
+                await fetch("https://ai-resume-screener-q7fn.onrender.com/api/...", {
                   method: "DELETE",
                 });
                 window.location.reload();
